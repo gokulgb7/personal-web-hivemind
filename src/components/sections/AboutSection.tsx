@@ -1,87 +1,101 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Code, Palette, Rocket, Users } from 'lucide-react';
+import { Code2, TrendingUp, Lightbulb, Target, Users, Award } from 'lucide-react';
 
 const AboutSection = () => {
-  const skills = [
+  const achievements = [
     {
-      icon: <Code className="w-8 h-8" />,
-      title: "Development",
-      description: "Full-stack development with modern technologies and best practices."
+      icon: <Code2 className="w-8 h-8" />,
+      title: "Full-Stack Expertise",
+      description: "Proficient in modern web technologies, cloud architecture, and AI integration",
+      color: "from-blue-500 to-cyan-500"
     },
     {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Design",
-      description: "Creating beautiful, user-centered designs that tell your story."
+      icon: <TrendingUp className="w-8 h-8" />,
+      title: "Market Analysis",
+      description: "Strategic trading with focus on technical analysis and risk management",
+      color: "from-green-500 to-emerald-500"
     },
     {
-      icon: <Rocket className="w-8 h-8" />,
-      title: "Performance",
-      description: "Optimized solutions that scale and perform under pressure."
+      icon: <Lightbulb className="w-8 h-8" />,
+      title: "Innovation Mindset",
+      description: "Building scalable businesses through strategic vision and execution",
+      color: "from-purple-500 to-pink-500"
+    },
+    {
+      icon: <Target className="w-8 h-8" />,
+      title: "Results-Driven",
+      description: "Focused on delivering measurable outcomes and continuous improvement",
+      color: "from-orange-500 to-red-500"
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Collaboration",
-      description: "Working together to bring your vision to life."
+      title: "Collaborative Leader",
+      description: "Building and leading high-performing teams across different domains",
+      color: "from-teal-500 to-cyan-500"
+    },
+    {
+      icon: <Award className="w-8 h-8" />,
+      title: "Continuous Learning",
+      description: "Always exploring new technologies, market trends, and business strategies",
+      color: "from-indigo-500 to-purple-500"
     }
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-24 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
               About Me
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              I'm passionate about creating digital experiences that make a difference. 
-              Here's what I bring to the table.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              I'm a multi-disciplinary professional who believes in the power of combining technology, 
+              financial markets, and entrepreneurship to create meaningful impact. My journey spans 
+              across different domains, each enriching my perspective and capabilities.
             </p>
           </div>
 
-          {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Text Content */}
-            <div className="space-y-6">
-              <h3 className="text-2xl font-semibold text-gray-800">
-                Building the Future, One Project at a Time
-              </h3>
-              <p className="text-gray-600 leading-relaxed">
-                With years of experience in development and design, I specialize in creating 
-                scalable solutions that grow with your needs. My approach combines technical 
-                expertise with creative problem-solving to deliver exceptional results.
-              </p>
-              <p className="text-gray-600 leading-relaxed">
-                Whether you're looking to build a new application, redesign an existing system, 
-                or scale your current infrastructure, I'm here to help you achieve your goals 
-                with modern, efficient solutions.
-              </p>
-            </div>
-
-            {/* Profile Image Placeholder */}
-            <div className="flex justify-center">
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl flex items-center justify-center">
-                <div className="text-6xl text-gray-400">👤</div>
-              </div>
-            </div>
+          {/* Story */}
+          <div className="mb-20">
+            <Card className="p-8 md:p-12 bg-white/70 backdrop-blur-sm border-0 shadow-xl">
+              <CardContent className="p-0">
+                <div className="prose prose-lg max-w-none text-gray-700">
+                  <p className="text-xl leading-relaxed mb-6">
+                    My passion lies at the intersection of <strong>technology</strong>, <strong>finance</strong>, 
+                    and <strong>business innovation</strong>. I believe that the future belongs to those who 
+                    can think across disciplines and adapt to rapidly changing landscapes.
+                  </p>
+                  <p className="text-lg leading-relaxed">
+                    Whether I'm architecting scalable software solutions, analyzing market patterns for 
+                    profitable trades, or building innovative businesses from the ground up, I approach 
+                    each challenge with the same core principles: strategic thinking, continuous learning, 
+                    and relentless execution.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
           </div>
 
-          {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skill, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="mb-4 text-blue-600 flex justify-center">
-                    {skill.icon}
+          {/* Achievements Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {achievements.map((achievement, index) => (
+              <Card 
+                key={index} 
+                className="group hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg bg-white/80 backdrop-blur-sm"
+              >
+                <CardContent className="p-8 text-center">
+                  <div className={`w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-r ${achievement.color} flex items-center justify-center text-white`}>
+                    {achievement.icon}
                   </div>
-                  <h4 className="text-lg font-semibold mb-3 text-gray-800">
-                    {skill.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {skill.description}
+                  <h3 className="text-xl font-bold text-gray-800 mb-4">
+                    {achievement.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {achievement.description}
                   </p>
                 </CardContent>
               </Card>

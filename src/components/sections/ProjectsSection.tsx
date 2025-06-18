@@ -1,100 +1,136 @@
 
 import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, Code, Briefcase } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Project Alpha",
-      description: "A modern web application built with React and TypeScript, featuring real-time updates and responsive design.",
-      image: "🚀",
-      tech: ["React", "TypeScript", "Tailwind CSS"],
-      github: "#",
-      demo: "#"
+      category: "Development",
+      icon: <Code className="w-6 h-6" />,
+      title: "AI-Powered Analytics Platform",
+      description: "Full-stack web application leveraging machine learning for business intelligence and data visualization.",
+      technologies: ["React", "Node.js", "Python", "TensorFlow", "AWS"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop",
+      links: {
+        demo: "#",
+        github: "#"
+      },
+      color: "from-blue-500 to-cyan-500"
     },
     {
-      title: "Project Beta",
-      description: "Full-stack application with authentication, database integration, and API development.",
-      image: "⚡",
-      tech: ["Node.js", "Express", "PostgreSQL"],
-      github: "#",
-      demo: "#"
+      category: "Trading",
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Algorithmic Trading System",
+      description: "Automated trading bot with risk management, technical analysis, and real-time market data integration.",
+      technologies: ["Python", "Pandas", "NumPy", "Alpha Vantage API", "PostgreSQL"],
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&h=300&fit=crop",
+      links: {
+        demo: "#",
+        github: "#"
+      },
+      color: "from-green-500 to-emerald-500"
     },
     {
-      title: "Project Gamma",
-      description: "Mobile-first design system and component library used across multiple applications.",
-      image: "🎨",
-      tech: ["Design System", "Storybook", "CSS"],
-      github: "#",
-      demo: "#"
+      category: "Business",
+      icon: <Briefcase className="w-6 h-6" />,
+      title: "SaaS Startup MVP",
+      description: "Complete business solution from concept to launch, including market research, product development, and go-to-market strategy.",
+      technologies: ["Business Strategy", "Product Management", "Market Analysis", "Team Leadership"],
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=300&fit=crop",
+      links: {
+        demo: "#",
+        case_study: "#"
+      },
+      color: "from-purple-500 to-pink-500"
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
+    <section id="projects" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          {/* Section Header */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent">
               Featured Projects
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Here are some of the projects I've been working on. Each one represents 
-              a unique challenge and solution.
+            <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+              A showcase of my work across development, trading, and entrepreneurship. 
+              Each project represents a unique challenge and learning opportunity.
             </p>
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="space-y-12">
             {projects.map((project, index) => (
-              <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-1 overflow-hidden">
-                <CardContent className="p-0">
-                  {/* Project Image/Icon */}
-                  <div className="h-48 bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                    <div className="text-6xl">{project.image}</div>
+              <Card key={index} className="overflow-hidden border-0 shadow-2xl hover:shadow-3xl transition-all duration-300 group">
+                <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''}`}>
+                  {/* Image */}
+                  <div className={`relative overflow-hidden ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
+                    <img 
+                      src={project.image} 
+                      alt={project.title}
+                      className="w-full h-80 lg:h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-r ${project.color} opacity-20 group-hover:opacity-30 transition-opacity duration-300`}></div>
                   </div>
-                  
-                  {/* Project Details */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-3 text-gray-800">
+
+                  {/* Content */}
+                  <div className="p-8 lg:p-12 flex flex-col justify-center">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className={`p-2 rounded-lg bg-gradient-to-r ${project.color} text-white`}>
+                        {project.icon}
+                      </div>
+                      <span className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+                        {project.category}
+                      </span>
+                    </div>
+
+                    <h3 className="text-3xl font-bold text-gray-800 mb-4">
                       {project.title}
                     </h3>
-                    <p className="text-gray-600 mb-4 leading-relaxed">
+
+                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
                       {project.description}
                     </p>
-                    
-                    {/* Tech Stack */}
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {project.tech.map((tech, techIndex) => (
-                        <span
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.technologies.map((tech, techIndex) => (
+                        <span 
                           key={techIndex}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
+                          className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
-                    
-                    {/* Action Buttons */}
-                    <div className="flex gap-3">
-                      <Button variant="outline" size="sm" asChild>
-                        <a href={project.github} className="flex items-center gap-2">
-                          <Github className="w-4 h-4" />
+
+                    {/* Links */}
+                    <div className="flex gap-4">
+                      {project.links.demo && (
+                        <Button className={`bg-gradient-to-r ${project.color} hover:opacity-90 text-white`}>
+                          View Project
+                          <ExternalLink className="ml-2 w-4 h-4" />
+                        </Button>
+                      )}
+                      {project.links.github && (
+                        <Button variant="outline">
+                          <Github className="mr-2 w-4 h-4" />
                           Code
-                        </a>
-                      </Button>
-                      <Button size="sm" asChild>
-                        <a href={project.demo} className="flex items-center gap-2">
-                          <ExternalLink className="w-4 h-4" />
-                          Demo
-                        </a>
-                      </Button>
+                        </Button>
+                      )}
+                      {project.links.case_study && (
+                        <Button variant="outline">
+                          Case Study
+                          <ExternalLink className="ml-2 w-4 h-4" />
+                        </Button>
+                      )}
                     </div>
                   </div>
-                </CardContent>
+                </div>
               </Card>
             ))}
           </div>
