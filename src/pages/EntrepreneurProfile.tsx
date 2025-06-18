@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 
 const EntrepreneurProfile = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const skills = [
     { icon: <Rocket className="w-6 h-6" />, name: "Business Strategy", level: 90 },

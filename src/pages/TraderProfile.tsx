@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +8,10 @@ import { useNavigate } from 'react-router-dom';
 
 const TraderProfile = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const strategies = [
     { icon: <TrendingUp className="w-6 h-6" />, name: "Technical Analysis", success: 85 },
