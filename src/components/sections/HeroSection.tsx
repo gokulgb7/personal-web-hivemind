@@ -14,15 +14,15 @@ const HeroSection = () => {
               Welcome to My World
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-              I'm a passionate developer creating amazing digital experiences. 
-              Let's build something incredible together.
+              Multi-faceted professional passionate about technology, markets, and innovation. 
+              Explore my journey across different domains.
             </p>
           </div>
 
           {/* Call to Action Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg">
-              View My Work
+              Explore My Profiles
             </Button>
             <Button variant="outline" size="lg" className="px-8 py-3 text-lg">
               Get In Touch
