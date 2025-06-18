@@ -3,8 +3,11 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const ProfilesSection = () => {
+  const navigate = useNavigate();
+
   const profiles = [
     {
       title: "Developer",
@@ -68,7 +71,7 @@ const ProfilesSection = () => {
                 
                 <Button 
                   className={`w-full bg-gradient-to-r ${profile.color} hover:opacity-90 text-white group-hover:shadow-lg transition-all duration-300`}
-                  onClick={() => console.log(`Navigate to ${profile.link}`)}
+                  onClick={() => navigate(profile.link)}
                 >
                   Explore Profile
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
